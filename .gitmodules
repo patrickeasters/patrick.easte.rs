@@ -1,0 +1,3 @@
+[submodule "themes/AllinOne"]
+	path = themes/AllinOne
+	url = git@github.com:patickeasters/AllinOne.git

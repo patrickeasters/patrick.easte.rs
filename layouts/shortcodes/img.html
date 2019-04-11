@@ -1,0 +1,6 @@
+{{ $orig := $.Page.Resources.GetMatch (.Get 0) }}
+{{ $img := $orig.Fit "700x700" }}
+<figure>
+	<img src="{{ $img.RelPermalink }}" />
+	<figcaption>{{ .Get 1 }}</figcaption>
+</figure>

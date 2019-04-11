@@ -1,3 +1,76 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL                    = "https://patrick.easte.rs/"
+builddrafts                = false
+languageCode               = "en-us"
+canonifyurls               = true
+contentdir                 = "content"
+layoutdir                  = "layouts"
+publishdir                 = "public"
+enableEmoji                = true
+summaryLength              = 100
+Paginate                   = 10
+disqusShortname            = "patrick-easte-rs"
+
+theme                      = "AllinOne"
+title                      = "Patrick Easters"
+
+pygmentsuseclasses         = true
+
+
+[permalinks]
+  blog                     = "blog/:year-:month/:slug/"
+
+
+[taxonomies]
+  tag                      = "tags"
+  series                   = "series"
+  category                 = "categories"
+
+
+[menu]
+  [[menu.main]]
+    name                   = "Posts"
+    weight                 = -120
+    identifier             = "posts"
+    url                    = "posts/"
+
+  [[menu.main]]
+    name                   = "About"
+    weight                 = -100
+    identifier             = "about"
+    url                    = "about/"
+
+
+
+[params]
+  #faviconfile              = "img/zheng.png"
+  avatar                   = "img/profile.png"
+  author                   = "Patrick Easters"
+  description              = ["DevOps Engineer", "Sweet Tea Addict", "Husband and Dad", "All-around Nerd"]
+  #welcome_head             = "Hello, World!"
+  #welcome_word             = ""
+
+  latestpostscount         = 5                             # how many posts to display on the home page
+  bloggroupby              = 'month'
+  dateform                 = "Jan 2, 2006"
+  dateformfull             = "2006-01-02  Monday  15:04:05"
+  noshowreadtime           = false                         # if true, don't show "<x> minutes read" in posts
+
+  # slides
+  slidesDirPath            = "static/img/header-slides"    # path to image in local dir (path for hugo)
+  slidesDirPathURL         = "img/header-slides"    # path to image in static dir (for static pages)
+
+  # highlighting
+  highlightjs              = true
+
+  # latex
+  katex                    = true
+
+  # links
+  email                    = "patrick@patrickeasters.com"
+  github                   = "//github.com/patrickeasters"
+  linkedin                 = "//linkedin.com/in/patrickeasters"
+  twitter                  = "//twitter.com/patrickeasters"
+  include_rss              = false                          # include RSS <link> tag in <head> and show RSS icon
+
+  # analytics
+  googleAnalytics          = "UA-50390951-1"
