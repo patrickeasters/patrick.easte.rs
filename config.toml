@@ -1,76 +1,43 @@
-baseURL                    = "https://patrick.easte.rs/"
-builddrafts                = false
-languageCode               = "en-us"
-canonifyurls               = true
-contentdir                 = "content"
-layoutdir                  = "layouts"
-publishdir                 = "public"
-enableEmoji                = true
-summaryLength              = 100
-Paginate                   = 10
-disqusShortname            = "patrick-easte-rs"
-
-theme                      = "AllinOne"
-title                      = "Patrick Easters"
-
-pygmentsuseclasses         = true
-
-
-[permalinks]
-  blog                     = "blog/:year-:month/:slug/"
-
+baseurl = "https://patrick.easte.rs/"
+theme = "hugo-geo"
+languageCode = "en-us"
+title = "Patrick Easters"
+disqusShortname = "patrick-easte-rs"
+paginate = 5
 
 [taxonomies]
-  tag                      = "tags"
-  series                   = "series"
-  category                 = "categories"
-
-
-[menu]
-  [[menu.main]]
-    name                   = "Posts"
-    weight                 = -120
-    identifier             = "posts"
-    url                    = "posts/"
-
-  [[menu.main]]
-    name                   = "About"
-    weight                 = -100
-    identifier             = "about"
-    url                    = "about/"
-
-
+tag                      = "tags"
+series                   = "series"
+category                 = "categories"
 
 [params]
-  #faviconfile              = "img/zheng.png"
-  avatar                   = "img/profile.png"
-  author                   = "Patrick Easters"
-  description              = ["DevOps Engineer", "Sweet Tea Addict", "Husband and Dad", "All-around Nerd"]
-  #welcome_head             = "Hello, World!"
-  #welcome_word             = ""
+	showglobe = false
 
-  latestpostscount         = 5                             # how many posts to display on the home page
-  bloggroupby              = 'month'
-  dateform                 = "Jan 2, 2006"
-  dateformfull             = "2006-01-02  Monday  15:04:05"
-  noshowreadtime           = false                         # if true, don't show "<x> minutes read" in posts
+	favicon = "img/profile.png"
 
-  # slides
-  slidesDirPath            = "static/img/header-slides"    # path to image in local dir (path for hugo)
-  slidesDirPathURL         = "img/header-slides"    # path to image in static dir (for static pages)
+	analytics = "UA-50390951-1"
 
-  # highlighting
-  highlightjs              = true
+	email = "patrick@easte.rs"
 
-  # latex
-  katex                    = true
+	profilepic = "img/profile.png"
 
-  # links
-  email                    = "patrick@patrickeasters.com"
-  github                   = "//github.com/patrickeasters"
-  linkedin                 = "//linkedin.com/in/patrickeasters"
-  twitter                  = "//twitter.com/patrickeasters"
-  include_rss              = false                          # include RSS <link> tag in <head> and show RSS icon
+	title = "Patrick Easters"
+	subtitle = "DevOps Engineer. Dad. Husband."
 
-  # analytics
-  googleAnalytics          = "UA-50390951-1"
+	[[params.socialbuttons]]
+	faicon = "github"
+	url = "https://github.com/patrickeasters"
+	[[params.socialbuttons]]
+	faicon = "twitter"
+	url = "https://twitter.com/patrickeasters"
+	[[params.socialbuttons]]
+	faicon = "linkedin"
+	url = "https://linkedin.com/in/patrickeasters"
+
+	[[params.navlinks]]
+	name = "About"
+	url = "about"
+
+	[[params.navlinks]]
+	name = "Blog"
+	url = "post"

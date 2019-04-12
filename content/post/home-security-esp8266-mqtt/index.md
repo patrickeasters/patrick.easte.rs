@@ -21,9 +21,7 @@ All the sensor wires were cut back, meaning I had to strip each one and trace wh
 
 Now the fun part: building it. This is a super simple circuit, with just a microcontroller and 3 switches. I used 3 of the GPIO pins to connect to the 3 door switches and connected the other side of the switches to ground. One nice feature of this board was that most of the pins had a built-in weak pull-up resistor. This meant that when a switch was open, the pin would be pulled high (3.3V).
 
-{{% img-no-border %}}
 {{% img "img/breadboard.png" "The components labeled S1-S3 represent the reed switches already installed in the doors. When a door opens, the magnet in the door causes the switch to open (or disconnect)." %}}
-{{% /img-no-border %}}
 
 ## Adding some code
 
@@ -40,15 +38,11 @@ I won’t get too detailed here, but after establishing the initial WiFi and MQT
 
 Before I could run my code on the NodeMCU board, I needed to flash it with updated firmware that contained the modules I needed. I used this handy [Cloud Build Service](http://nodemcu-build.com/) to build a firmware image. For my needs, I simply needed the following modules: file, gpio, mqtt, net, node, tmr, uart, wifi.
 
-{{% img-no-border %}}
 {{% img "img/pyflasher.png" "" %}}
-{{% /img-no-border %}}
 
 To actually flash the firmware, I used an open-source Python tool called [nodemcu-pyflasher](https://github.com/marcelstoer/nodemcu-pyflasher). It worked great on my Mac and should on most other platforms as well.
 
-{{% img-no-border %}}
 {{% img "img/esplorer.png" "" %}}
-{{% /img-no-border %}}
 
 Now that I was ready to upload my code, I used a tool called [ESPlorer](https://github.com/4refr0nt/ESPlorer) to handle that portion. It provides a pretty handy console that lets you run commands ad-hoc as well as edit your code. I personally found it easiest to just use my usual text editor and the “Upload” button in the left pane.
 

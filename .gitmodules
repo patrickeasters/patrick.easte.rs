@@ -1,3 +1,3 @@
-[submodule "themes/AllinOne"]
-	path = themes/AllinOne
-	url = git@github.com:patickeasters/AllinOne.git
+[submodule "themes/hugo-geo"]
+	path = themes/hugo-geo
+	url = git@github.com:patrickeasters/hugo-geo.git

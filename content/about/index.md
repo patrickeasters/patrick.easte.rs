@@ -1,6 +1,5 @@
 ---
 title: "About"
-draft: true
 noshowdate: true
 noshowreadtime: true
 ---
