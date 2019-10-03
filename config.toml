@@ -6,9 +6,9 @@ disqusShortname = "patrick-easte-rs"
 paginate = 5
 
 [taxonomies]
-tag                      = "tags"
-series                   = "series"
-category                 = "categories"
+tag = "tags"
+series = "series"
+category = "categories"
 
 [params]
 	showglobe = false
@@ -22,7 +22,9 @@ category                 = "categories"
 	profilepic = "img/profile.png"
 
 	title = "Patrick Easters"
-	subtitle = "DevOps Engineer. Dad. Husband."
+	subtitle = "DevOps, Dad Jokes, and other Nerd Stuff"
+  header = "Recent Posts"
+
 
 	[[params.socialbuttons]]
 	faicon = "github"
