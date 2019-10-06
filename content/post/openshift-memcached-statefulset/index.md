@@ -138,7 +138,7 @@ $ kubectl exec net-utils dig +short srv memcached.default.svc.cluster.local
 # Let's clean up this pod now that we're done with our validation
 # (Or you can keep running queries... that's cool too)
 $ oc delete po net-utils
-pod "net-utils" deleted</pre>
+pod "net-utils" deleted
 ```
 
 ## Connecting Our App
@@ -150,7 +150,7 @@ memcached_hosts = []
 Resolv::DNS.new.each_resource('memcached.default.svc.cluster.local', Resolv::DNS::Resource::IN::SRV) { |rr|
   memcached_hosts << rr.target.to_s
 }
-config.cache_store = :dalli_store, memcached_hosts</pre>
+config.cache_store = :dalli_store, memcached_hosts
 ```
 
 ## Closing Thoughts
