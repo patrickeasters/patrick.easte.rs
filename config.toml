@@ -23,7 +23,7 @@ category = "categories"
 
 	title = "Patrick Easters"
 	subtitle = "DevOps, Dad Jokes, and other Nerd Stuff"
-  header = "Recent Posts"
+	header = "Recent Posts"
 
 
 	[[params.socialbuttons]]
@@ -43,3 +43,7 @@ category = "categories"
 	[[params.navlinks]]
 	name = "Blog"
 	url = "post"
+
+	[[params.navlinks]]
+	name = "Talks"
+	url = "https://speakerdeck.com/patrickeasters/"
