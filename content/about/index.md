@@ -4,6 +4,6 @@ noshowdate: true
 noshowreadtime: true
 nocomments: true
 ---
-Patrick is a software engineer at Red Hat, working with the team behind Red Hat Subscription Management and other apps that enable customers to consume Red Hat products.
+Patrick is a principal systems engineer at Red Hat, helping customers and partners use OpenShift for 5G and other edge deployments.
 
 He has a passion for automation, building resilient systems, and helping teams deliver software more efficiently. When he's not busy automating things, he's probably building something in his garage, making his house too smart, or stepping on Cheerios dropped by his kids.
