@@ -4,6 +4,8 @@ date: 2018-05-03T22:48:00-04:00
 draft: false
 tags: ["kubernetes","openshift"]
 categories: ["DevOps"]
+aliases:
+  - /post/openshift-memcached-statefulset/
 ---
 Over the past few months at Red Hat, I've been working with my team on streamlining our CI/CD process and migrating some of our applications into [OpenShift](https://www.openshift.com/). As we've been slowly moving apps, it's been a great opportunity to revisit some of the basics of our architecture and look at ways we can better use OpenShift to . What may have worked well in a VM-based deployment doesn't necessarily translate well into a container-based deployment. For the sake of this post, I'll be showing how we use a recently stable feature of OpenShift (and Kubernetes) to deploy [memcached](https://memcached.org/) for one of our Ruby apps on the Red Hat Customer Portal.
 <!--more-->

@@ -3,6 +3,8 @@ title: "Integrating existing home security sensors with MQTT"
 date: 2017-03-28T00:00:00-04:00
 tags: ["home-assistant","mqtt"]
 categories: ["Home Automation"]
+aliases:
+  - /post/home-security-esp8266-mqtt/
 ---
 When my wife and I bought a house a couple years back, I knew it would only be a matter of time before I started getting into home automation. My house, like many built in the late 90s, was pre-wired for an alarm system. While I had no desire to revive a 20-year-old alarm panel, it did mean all my exterior doors were pre-wired with inconspicuous sensors. I already run [Home Assistant](https://home-assistant.io) on a Raspberry Pi, so I was looking for a way to integrate these hard-wired door sensors with what I already have. I had read about these cheap WiFi-enabled [ESP8266 boards](https://www.amazon.com/gp/product/B010O1G1ES), so I decided this would be a simple project to try it out with.
 <!--more-->

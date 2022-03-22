@@ -3,6 +3,8 @@ title: "Putting the CRD in Christmas Decorations"
 date: 2019-12-24T22:00:00-05:00
 tags: ["operators"]
 categories: ["DevOps"]
+aliases:
+  - /post/putting-the-crd-in-christmas-decorations/
 ---
 It's a few days in to the holiday shutdown at work, so I've been enjoying some downtime with my family at home. There's been plenty of last-minute shopping, gift wrapping, baking, and, evidently, building operators with the [Operator SDK](https://github.com/operator-framework/operator-sdk). 
 

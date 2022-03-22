@@ -3,6 +3,8 @@ title: "Using Traefik with TLS on Kubernetes"
 date: 2016-08-16T00:00:00-04:00
 tags: ["kubernetes"]
 categories: ["DevOps"]
+aliases:
+  - /post/traefik-tls-k8s/
 ---
 Over the past few months, I’ve been working with [Kubernetes](http://kubernetes.io/) a lot as Ayetier has been making the shift towards container orchestration. As easy as it was to create and scale services, it was a bit frustrating to see how most reverse proxy solutions seemed kludgy at best.
 
