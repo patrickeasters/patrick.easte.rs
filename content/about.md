@@ -1,8 +1,8 @@
 ---
 title: "About"
-noshowdate: true
-noshowreadtime: true
 nocomments: true
+hidemeta: true
+disableShare: true
 ---
 Patrick is a principal systems engineer at Red Hat, helping customers and partners use OpenShift for 5G and other edge deployments.
 

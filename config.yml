@@ -1,0 +1,79 @@
+baseurl: 'https://patrick.easte.rs/'
+languageCode: en-us
+title: Patrick Easters
+disqusShortname: patrick-easte-rs
+paginate: 5
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+pygmentsUseClasses: true
+
+googleAnalytics: UA-50390951-1
+
+module:
+  imports:
+  - path: github.com/adityatelange/hugo-PaperMod
+
+
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  env: production
+  title: Patrick Easters
+  keywords: [Blog]
+  author: Patrick Easters
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto
+  ShowShareButtons: true
+  ShowReadingTime: true
+  profileMode:
+    enabled: true
+    title: Patrick Easters
+    subtitle: DevOps, Dad Jokes, and other Nerd Stuff
+    imageUrl: img/profile.png
+    imageWidth: 160
+    imageHeight: 160
+    imageTitle: Patrick Easters
+    buttons:
+      - name: Latest Posts
+        url: post
+      - name: Tags
+        url: tags
+  socialIcons:
+    - name: github
+      url: https://github.com/patrickeasters
+    - name: twitter
+      url: https://twitter.com/patrickeasters
+    - name: linkedin
+      url: https://linkedin.com/in/patrickeasters
+    - name: email
+      url: mailto:patrick@easte.rs
+  assets:
+    favicon: /img/profile.png
+
+menu:
+    main:
+        - identifier: about
+          name: About
+          url: /about/
+          weight: 10
+        - identifier: posts
+          name: Posts
+          url: /post/
+          weight: 20
+        - identifier: talks
+          name: Talks
+          url: https://speakerdeck.com/patrickeasters
+          weight: 40
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
