@@ -19,7 +19,7 @@ This project mostly consisted of hardware I had laying around, the Prometheus mo
 <img src="{{% imgref "img/flowchart.svg" %}}" width="600">
 
 ## Software
-We'll configure a Prometheus alert to detect our out-of-memory conditions and then fire a webhook to a Raspberry Pi when comntainers are killed.
+We'll configure a Prometheus alert to detect our out-of-memory conditions and then fire a webhook to a Raspberry Pi when containers are killed.
 
 ### Prometheus Configuration
 To get started, we'll need a Prometheus instance configured to scrape kube-state-metrics, which is where we'll get metrics for container status. I use the [Prometheus Operator](https://prometheus-operator.dev/), but you can adapt the config to your environment as needed.
@@ -94,6 +94,6 @@ In the spirit of grabbing what I had around my house, the remaining components w
 * A [3D printed shipping container](https://www.thingiverse.com/thing:1561981) scaled to about 40mm long
 
 ## Testing it out
-Once it's wired up, there's no better way to test it out than by summoning the OOM Killer. Aside from the obvious answer of running Chrome in a container, I turned to [Stack Overflow](https://askubuntu.com/questions/1188024/how-to-test-oom-killer-from-command-line) and found a cool one-liner to quickly consume an infinite amount of memory: `tail /dev/zero`. In this project's Git repo, I provided a [spec for a pod](https://github.com/patrickeasters/oom-bonker/blob/13a9a69a38b0de7f8aaeca0ea4dfaadfbb185e49/k8s/hungry_pod.yml) that crashes 10 seconds after startup. Assuming it's all wired up correctly, poor Tux should be bonked momentarily.
+Once it's wired up, there's no better way to test it out than by summoning the OOM Killer. While my first idea for quickly eating up memory was launching Chrome, I turned to [Stack Overflow](https://askubuntu.com/questions/1188024/how-to-test-oom-killer-from-command-line) and found a cool one-liner to quickly consume an infinite amount of memory: `tail /dev/zero`. In this project's Git repo, I provided a [spec for a pod](https://github.com/patrickeasters/oom-bonker/blob/13a9a69a38b0de7f8aaeca0ea4dfaadfbb185e49/k8s/hungry_pod.yml) that crashes 10 seconds after startup. Assuming it's all wired up correctly, poor Tux should be bonked momentarily.
 
-Despite being a niche project, hppefully you were able to glean something from it. Let me know if you make something inspired from this—I'd love to see it!
+Despite being a niche project, hopefully you were able to glean something from it. Let me know if you make something inspired from this—I'd love to see it!
