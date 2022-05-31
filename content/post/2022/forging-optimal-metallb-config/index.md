@@ -48,29 +48,38 @@ MetalLB is really only concerned with getting traffic __to__ your nodes. Once it
   </tr>
 </table>
 
+### A quick note about Source IP preservation
+Source IP preservation is a big consideration when choosing an external traffic policy. With a `Global` policy, the source IP of incoming packets is always translated (even if the destination pod is on the same node). This means the application running behind your service won't be able to determine the client IP of incoming requests based on the network connection. Unless you have something like a CDN or other reverse proxy in front of your cluster that can inject that as an HTTP header or use the [PROXY](https://www.haproxy.com/blog/haproxy/proxy-protocol/) protocol, losing the true source IP is a big limitation.
+
+On the other hand, the `Local` policy preserves the source IP of incoming packets. The only disadvantage is that the packet can only be sent to a pod/endpoint on the same node.
+
 ## Layer 2 Global
-Generally layer 2 mode should be paired with the `Global` external traffic policy. This allows MetalLB to advertise one node's MAC address and for `kube-proxy` to evenly distribute traffic to all service endpoints regardless of node.
+With layer 2 mode and the `Global` external traffic policy, MetalLB advertises one node's MAC address and `kube-proxy` evenly distributes traffic to all service endpoints in the cluster. This results in a pretty even spread of traffic at the expense of no source IP preservation.
 
 <img src="{{% imgref "img/l2_global.svg" %}}" width="100%">
 
 ## Layer 2 Local
-On the other hand, Layer 2 mode with the `Local` external traffic policy results in traffic entering one node and only reaching service endpoints on the same node. Traffic is also dropped entirely if there are no endpoints on the same node.
+On the other hand, Layer 2 mode with the `Local` external traffic policy results in traffic entering one node and only reaching service endpoints on the same node. MetalLB is smart enough to ensure that nodes without endpoints are ineligible to advertise a service, meaning you won't be stuck in a scenario where a single pod runs on node A but is advertised from node B.
 
-This configuration likely isn't ideal when you have a multi-node cluster and more than one pod backing a service. But on a single node cluster, this behaves the same as the `Global` traffic policy. If you think of a compelling reason to use this, let me know.
+If you want to use Layer 2 mode with a singleton application (one pod/endpoint), the `Local` policy is a great fit. For services with multiple endpoints, it's important to remember that inbound traffic will only ever reach pods on a single node at a time.
 
 <img src="{{% imgref "img/l2_local.svg" %}}" width="100%">
 
 ## BGP Global
 The real fun starts with BGP. Combined with the `Global` external traffic policy, traffic will enter all nodes and then be distributed across all service endpoints in the cluster. If a node becomes unreachable, its BGP session will drop and the upstream routers will rebalance traffic amongst the other nodes. Unlike layer 2 mode, all nodes will accept incoming traffic, which can be handy when you have high throughput services and want to avoid overwhelming a single node.
 
+Like the story with layer 2 mode, the `Global` policy will potentially achieve better load balancing at the expense of no source IP preservation.
+
 <img src="{{% imgref "img/bgp_global.svg" %}}" width="100%">
 
 ## BGP Local
-Lastly we have my personal favorite (is that nerdy to say?): BGP mode with the `Local` external traffic policy. In this configuration, each node containing at least one service endpoint will advertise itself and then distribute traffic to endpoints on the same node. I like this for at least several reasons:  it minimizes extra hops and the source IP is preserved since packets don't have to leave the node. The latter is extremely helpful when you don't have a CDN or other reverse proxy in front of your service and really do need the source IP.
+Lastly we have my personal favorite (is that nerdy to say?): BGP mode with the `Local` external traffic policy. In this configuration, each node containing at least one service endpoint will advertise itself and then distribute traffic to endpoints on the same node. I like this for at least several reasons: it minimizes extra hops and source IP preservation.
 
-One thing to watch out for when using this combination is your traffic distribution. Because traffic is equally balanced between nodes, then yet again balanced between pods on the node, the spread can become uneven if some nodes have more pods than others. This can be mitigated by using pod anti-affinity policies to spread pods across nodes. If this is a pain point for you, it may be worth following a [related issue](https://github.com/metallb/metallb/issues/1) that proposes some BGP magic to equal out the distribution based upon endpoint count on each node.
+One thing to watch out for when using this combination is your traffic distribution. Because traffic is equally balanced between nodes, then yet again balanced between pods on the node, the spread can become uneven if some nodes have more pods than others. One potential mitigation is using pod anti-affinity policies to help spread pods across nodes. If this is a pain point for you, it may be worth following a [related issue](https://github.com/metallb/metallb/issues/1) that proposes some BGP magic to equal out the distribution based upon endpoint count on each node.
 
 <img src="{{% imgref "img/bgp_local.svg" %}}" width="100%">
 
 # Wrapping up
 Hopefully by now you've learned a little more about how MetalLB works and some of the tradeoffs to consider. Reach out if you have any questions or feedback. Happy load balancing!
+
+_Thanks to [u/brontide](https://www.reddit.com/r/kubernetes/comments/v1nira/comment/ianf5rw/?utm_source=share&utm_medium=web2x&context=3) on Reddit for correcting some bad assumptions I made regarding Source IP Preservation._
