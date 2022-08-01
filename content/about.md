@@ -4,6 +4,6 @@ nocomments: true
 hidemeta: true
 disableShare: true
 ---
-Patrick is a principal systems engineer at Red Hat, helping customers and partners use OpenShift for 5G and other edge deployments.
+Patrick is a senior customer solutions engineer at Sysdig, helping customers secure and monitor their cloud-native infrastructure.
 
-He has a passion for automation, building resilient systems, and helping teams deliver software more efficiently. When he's not busy automating things, he's probably building something in his garage, making his house too smart, or stepping on Cheerios dropped by his kids.
+He is always trying to keep up with the latest best practices for cloud native infrastructure and enjoys helping others learn the same. When he's not busy tinkering with Kubernetes, he's probably building something in his garage, trying to find the best pizza recipe, or stepping on snacks dropped by his kids.
